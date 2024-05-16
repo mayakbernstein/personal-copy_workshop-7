@@ -67,12 +67,15 @@ Annotate the code to make `abalone_plot`. Make the plot look better by:
 2.  making the background of the panel white with no gridlines
 
 ```{r prelim-data-visualization}
-abalone_plot <- ggplot(data = abalone,
-                       aes(x = temperature,
-                           y = growth)) +
-  geom_point()
+abalone_plot <- ggplot(data = abalone, #which data I am talking about
+                       aes(x = temperature, # x axis is temperature
+                           y = growth)) + # y axis is growth
+  geom_point( #make a scatter plot
+    size = 10, #make the size of the plots bigger
+             color = "blue")+ #make the points blue
+  theme_classic()#classic theme takes away gridlines 
 
-abalone_plot
+abalone_plot #show plot
 ```
 
 **COMMIT AND PUSH YOUR CHANGES!**
