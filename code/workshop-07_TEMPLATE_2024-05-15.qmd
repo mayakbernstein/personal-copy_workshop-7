@@ -7,12 +7,12 @@ format: html
 
 # Set up
 
-First, make sure your name is in the `author:` field at the top of this document.  
+First, make sure your name is in the `author:` field at the top of this document.
 
-Second, install the following packages (remember to do this in your Console):  
+Second, install the following packages (remember to do this in your Console):
 
-- `here`: read about it at [this link](https://here.r-lib.org/)  
-- `ggeffects`: read about it at [this link](https://strengejacke.github.io/ggeffects/)
+-   `here`: read about it at [this link](https://here.r-lib.org/)\
+-   `ggeffects`: read about it at [this link](https://strengejacke.github.io/ggeffects/)
 
 Third, read in your packages and data.
 
@@ -25,15 +25,15 @@ library(flextable) # creating tables
 abalone <- read_csv(here("data", "abalone_growth.csv"))
 ```
 
-Look at the file structure in this repository.  
+Look at the file structure in this repository.
 
-Where is this `.qmd` file? Where is the `abalone_growth.csv` file?  
+Where is this `.qmd` file? Where is the `abalone_growth.csv` file?
 
-_insert response here_  
+.qmd is located in the code folder and abalone growth is located in the data folder
 
-Note the file path within the `read_csv()` function. How is this different from how we've stored and read data before?  
+Note the file path within the `read_csv()` function. How is this different from how we've stored and read data before?
 
-_insert response here_  
+everything before was in the same folder, and now we have multiple folders so we need to specify the file path
 
 **COMMIT AND PUSH YOUR CHANGES!**
 
@@ -53,18 +53,18 @@ glimpse(abalone)
 class(abalone)
 ```
 
-Compare the three ways of looking at data below. What's different about the outputs, and what's similar?  
+Compare the three ways of looking at data below. What's different about the outputs, and what's similar?
 
-_insert response below_
+*insert response below*
 
 **COMMIT AND PUSH YOUR CHANGES!**
 
-Then, visualize your data.  
+Then, visualize your data.
 
-Annotate the code to make `abalone_plot`. Make the plot look better by:  
+Annotate the code to make `abalone_plot`. Make the plot look better by:
 
-1. changing the size of the points so that they're larger and easier to see  
-2. making the background of the panel white with no gridlines  
+1.  changing the size of the points so that they're larger and easier to see\
+2.  making the background of the panel white with no gridlines
 
 ```{r prelim-data-visualization}
 abalone_plot <- ggplot(data = abalone,
@@ -79,9 +79,9 @@ abalone_plot
 
 # 2. Write out your model.
 
-Write your model in words:  
+Write your model in words:
 
-_model in words here_  
+*model in words here*
 
 Annotate the code to create the model object `abalone_model`.
 
@@ -111,16 +111,16 @@ Use `summary()` to look at the model coefficients (slope and intercept) and stan
 summary(abalone_model) 
 ```
 
-Make a note of the y-intercept and slope estimates below with the standard error. Round the estimate and standard error to two decimal places.    
+Make a note of the y-intercept and slope estimates below with the standard error. Round the estimate and standard error to two decimal places.
 
-_Slope: insert slope and SE here_  
-_y-intercept: insert intercept and SE here_  
+*Slope: insert slope and SE here*\
+*y-intercept: insert intercept and SE here*
 
 **COMMIT AND PUSH YOUR CHANGES!**
 
 # 5. Visualize the model predictions.
 
-Get the model predictions using `ggeffect::ggpredict()`.  
+Get the model predictions using `ggeffect::ggpredict()`.
 
 Annotate the code below.
 
@@ -129,22 +129,22 @@ model_preds <- ggpredict(abalone_model,
                          terms = "temperature")
 ```
 
-Look at the `model_preds` object in two ways: using `View(model_preds)` in your console and by displaying the output just running `model_preds`.  
+Look at the `model_preds` object in two ways: using `View(model_preds)` in your console and by displaying the output just running `model_preds`.
 
-Compare the two outputs. How are they different?  
+Compare the two outputs. How are they different?
 
-_compare outputs here_  
+*compare outputs here*
 
-**Note:** you can rename columns in your object from `ggpredict()` to make the data frame easier to work with. For example, you can change `x` to whatever your `x` variable is (in this case, `temperature`), and `predicted` to whatever your `y` variable is (in this case, `growth`). If you do this, you'll have to modify the code below to run.  
+**Note:** you can rename columns in your object from `ggpredict()` to make the data frame easier to work with. For example, you can change `x` to whatever your `x` variable is (in this case, `temperature`), and `predicted` to whatever your `y` variable is (in this case, `growth`). If you do this, you'll have to modify the code below to run.
 
 **COMMIT AND PUSH YOUR CHANGES!**
 
-Then, plot the data with the model predictions. Annotate the code below. Change the plot by:  
+Then, plot the data with the model predictions. Annotate the code below. Change the plot by:
 
-1. changing the size of the points so that they're larger and easier to see  
-2. changing the shape of the points to be open circles so that attention is drawn to the model prediction line  
-3. changing the color of the points to be different from the line  
-4. making the background of the panel white with no gridlines  
+1.  changing the size of the points so that they're larger and easier to see\
+2.  changing the shape of the points to be open circles so that attention is drawn to the model prediction line\
+3.  changing the color of the points to be different from the line\
+4.  making the background of the panel white with no gridlines
 
 ```{r abalone-model-plot}
 abalone_model_plot <- ggplot(data = abalone,
@@ -166,9 +166,9 @@ abalone_model_plot <- ggplot(data = abalone,
 abalone_model_plot
 ```
 
-Create a new folder in this repository called `images`.  
+Create a new folder in this repository called `images`.
 
-Use `ggsave()` to save `abalone_model_plot` as a .jpg in `images`.  
+Use `ggsave()` to save `abalone_model_plot` as a .jpg in `images`.
 
 Annotate the code below.
 
@@ -179,10 +179,9 @@ ggsave(filename = here("images", "abalone_model_plot.jpg"),
        units = "cm")
 ```
 
-
 **COMMIT AND PUSH YOUR CHANGES!**
 
-Then, calculate the correlation between temperature and growth.  
+Then, calculate the correlation between temperature and growth.
 
 ```{r abalone-correlation-test}
 cor.test(abalone$temperature, abalone$growth,
@@ -191,31 +190,30 @@ cor.test(abalone$temperature, abalone$growth,
 
 # 6. Describe your model.
 
-Using your notes, write 2-4 sentences about the model results. Start with a broad overarching result (model significance and correlation), then describe specifics of the model estimates (slope and coefficient if relevant), and model predictions (at a specific predictor value, the model predicts _____ response value).  
+Using your notes, write 2-4 sentences about the model results. Start with a broad overarching result (model significance and correlation), then describe specifics of the model estimates (slope and coefficient if relevant), and model predictions (at a specific predictor value, the model predicts \_\_\_\_\_ response value).
 
-_write about your model here_ 
+*write about your model here*
 
-**COMMIT AND PUSH YOUR CHANGES!**  
+**COMMIT AND PUSH YOUR CHANGES!**
 
 # 7. Render your document and set up GitHub Pages for this repository.
 
-See the [Git/GitHub resource](https://spring-2024.envs-193ds.com/resources/using-github#using-github-pages-to-display-rendered-.html-output) to set up GitHub Pages.  
+See the [Git/GitHub resource](https://spring-2024.envs-193ds.com/resources/using-github#using-github-pages-to-display-rendered-.html-output) to set up GitHub Pages.
 
-Find the url for your rendered .html document. Make sure it looks like `yourgithubusername.github.io/repo/filepath/filename.html`. Enter it below.  
+Find the url for your rendered .html document. Make sure it looks like `yourgithubusername.github.io/repo/filepath/filename.html`. Enter it below.
 
-_enter your url here_  
+*enter your url here*
 
-**COMMIT AND PUSH YOUR CHANGES!**  
+**COMMIT AND PUSH YOUR CHANGES!**
 
 # 8. Write an informative README.
 
-Read the [README resource](https://spring-2024.envs-193ds.com/resources/writing-a-readme) (also on Canvas for reference).  
+Read the [README resource](https://spring-2024.envs-193ds.com/resources/writing-a-readme) (also on Canvas for reference).
 
-Find the `README` in this repository in RStudio.  
+Find the `README` in this repository in RStudio.
 
-Write sections for: "General information", "Data and file overview", and "Rendered output".    
+Write sections for: "General information", "Data and file overview", and "Rendered output".
 
-In your "Rendered output" section, include the link to the rendered .html document as a hyperlink.  
+In your "Rendered output" section, include the link to the rendered .html document as a hyperlink.
 
-**COMMIT AND PUSH YOUR CHANGES!**  
-
+**COMMIT AND PUSH YOUR CHANGES!**
