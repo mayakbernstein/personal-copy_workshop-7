@@ -55,7 +55,7 @@ class(abalone)
 
 Compare the three ways of looking at data below. What's different about the outputs, and what's similar?
 
-*insert response below*
+*they all tell information about the data but it is different based on each function.*
 
 **COMMIT AND PUSH YOUR CHANGES!**
 
